@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Health Care Services</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #f4f7f6; color: #333; }
+        
+        /* Header */
+        header { background-color: #0077b6; color: white; padding: 15px; text-align: center; }
+        
+        /* Navigation Menu Bar */
+        .navbar {
+            background-color: #023e8a;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar button {
+            background: none;
+            border: none;
+            color: white;
+            padding: 14px 16px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .navbar button:hover {
+            background-color: #0077b6;
+        }
+
+        .navbar button.active {
+            background-color: #caf0f8;
+            color: #023e8a;
+        }
+
+        /* Hero Banner */
+        .hero { 
+            background: linear-gradient(rgba(0,119,182,0.8), rgba(3,4,94,0.8)), url('https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=800&q=80'); 
+            background-size: cover; 
+            color: white; 
+            padding: 40px 20px; 
+            text-align: center; 
+        }
+
+        .container { padding: 20px; max-width: 800px; margin: 0 auto; }
+        .card { background: white; border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
+        .card h2 { color: #0077b6; margin-bottom: 15px; border-bottom: 2px solid #caf0f8; padding-bottom: 5px; }
+        
+        form { display: flex; flex-direction: column; gap: 12px; }
+        input, select, .form-btn { padding: 12px; border: 1px solid #ccc; border-radius: 6px; }
+        .form-btn { background-color: #0077b6; color: white; border: none; font-weight: bold; cursor: pointer; }
+        
+        .helpline-box {
+            background: #e0f7fa;
+            border-left: 5px solid #0077b6;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        .emergency-box {
+            background: #ffe6e6;
+            border-left: 5px solid #d90429;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        .helpline-number { font-size: 1.4rem; color: #d90429; font-weight: bold; margin-top: 5px; }
+        .back-btn { background: #03049e; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 15px; }
+
+        /* Pages Control */
+        .page { display: none; }
+        #homePage { display: block; }
+        
+        footer { text-align: center; padding: 15px; background: #03049e; color: white; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>🏥 Aditya Health Care</h1>
+    </header>
+
+    <!-- Top Menu Bar -->
+    <div class="navbar">
+        <button class="nav-btn active" onclick="showPage('homePage', this)">🏠 Home</button>
+        <button class="nav-btn" onclick="showPage('checkupPage', this)">👨‍⚕️ Checkup</button>
+        <button class="nav-btn" onclick="showPage('emergencyPage', this)">🩺 Emergency</button>
+        <button class="nav-btn" onclick="showPage('labPage', this)">🧪 Lab Tests</button>
+        <button class="nav-btn" onclick="showPage('medicinePage', this)">💊 Pharmacy</button>
+    </div>
+
+    <!-- PAGE 1: HOME PAGE -->
+    <div id="homePage" class="page">
+        <div class="hero">
+            <h2>Aapki Sehat, Hamari Prathmikta</h2>
+            <p>Ghar baithe doctor se sampark karein aur appointment book karein.</p>
+        </div>
+
+        <div class="container">
+            <div class="card">
+                <h2>Appointment Book Karein</h2>
+                <form id="appointmentForm">
+                    <input type="text" id="name" placeholder="Aapka Naam" required>
+                    <input type="tel" id="phone" placeholder="Mobile Number" required>
+                    <select id="service" required>
+                        <option value="">Seva Chunein</option>
+                        <option value="General Checkup">General Checkup</option>
+                        <option value="Emergency Care">Emergency Care</option>
+                        <option value="Lab Test">Lab Test</option>
+                        <option value="Online Medicine">Online Medicine</option>
+                    </select>
+                    <input type="date" id="date" required>
+                    <button type="submit" class="form-btn">Book Appointment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: GENERAL CHECKUP -->
+    <div id="checkupPage" class="page">
+        <div class="container" style="margin-top: 20px;">
+            <div class="card">
+                <h2>👨‍⚕️ General Checkup Details</h2>
+                <p>General Checkup mein aapke sharir ki basic health jaise BP, Sugar, Heart Rate aur Weight ki jaanch ki jaati hai.</p>
+                
+                <div class="helpline-box">
+                    <h3>📞 General Helpline:</h3>
+                    <div class="helpline-number">104 (National Health)</div>
+                    <div class="helpline-number" style="color: #0077b6;">+91 1800-11-2233</div>
+                </div>
+
+                <h3>Checkup Features:</h3>
+                <ul style="margin-left: 20px; color: #555;">
+                    <li>Full Body BP Check</li>
+                    <li>Random Blood Sugar Test</li>
+                    <li>Doctor Consultation</li>
+                </ul>
+
+                <button class="back-btn" onclick="showPage('homePage', document.querySelectorAll('.nav-btn')[0])">⬅ Home Page Par Wapas Jayein</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 3: EMERGENCY CARE -->
+    <div id="emergencyPage" class="page">
+        <div class="container" style="margin-top: 20px;">
+            <div class="card">
+                <h2 style="color: #d90429;">🚨 Emergency Care & Ambulance</h2>
+                <p>Kisibhi aatya-avashyak sthiti (Emergency) mein turant neeche diye gaye number par call karein.</p>
+                
+                <div class="emergency-box">
+                    <h3>🚨 Emergency Helpline (24x7):</h3>
+                    <div class="helpline-number">108 (Ambulance Direct)</div>
+                    <div class="helpline-number">+91 99999-88888 (Aditya ICU Hotline)</div>
+                </div>
+
+                <h3>Emergency Services:</h3>
+                <ul style="margin-left: 20px; color: #555;">
+                    <li>24x7 ICU & Trauma Center</li>
+                    <li>Oxygen Ambulance Support</li>
+                    <li>Immediate Casualty Doctor Response</li>
+                </ul>
+
+                <button class="back-btn" onclick="showPage('homePage', document.querySelectorAll('.nav-btn')[0])">⬅ Home Page Par Wapas Jayein</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 4: LAB TESTS -->
+    <div id="labPage" class="page">
+        <div class="container" style="margin-top: 20px;">
+            <div class="card">
+                <h2>🧪 Pathology & Lab Tests</h2>
+                <p>Ghar baithe blood sample collection aur accurate reports ke liye lab services book karein.</p>
+                
+                <div class="helpline-box">
+                    <h3>🔬 Lab Helpline & Booking:</h3>
+                    <div class="helpline-number" style="color: #0077b6;">+91 88888-77777</div>
+                </div>
+
+                <h3>Popular Tests:</h3>
+                <ul style="margin-left: 20px; color: #555;">
+                    <li>CBC & Hemoglobin Test</li>
+                    <li>Thyroid & Lipid Profile</li>
+                    <li>Home Sample Collection Available</li>
+                </ul>
+
+                <button class="back-btn" onclick="showPage('homePage', document.querySelectorAll('.nav-btn')[0])">⬅ Home Page Par Wapas Jayein</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 5: ONLINE MEDICINE -->
+    <div id="medicinePage" class="page">
+        <div class="container" style="margin-top: 20px;">
+            <div class="card">
+                <h2>💊 Online Pharmacy & Medicine</h2>
+                <p>Apni Doctor Prescription upload karein aur dawaiyan 20% discount par ghar mangwayein.</p>
+                
+                <div class="helpline-box">
+                    <h3>📱 WhatsApp Medicine Order:</h3>
+                    <div class="helpline-number" style="color: #25d366;">+91 77777-66666</div>
+                </div>
+
+                <h3>Pharmacy Benefits:</h3>
+                <ul style="margin-left: 20px; color: #555;">
+                    <li>100% Genuine Medicines</li>
+                    <li>Same Day Home Delivery</li>
+                    <li>Flat 20% Discount</li>
+                </ul>
+
+                <button class="back-btn" onclick="showPage('homePage', document.querySelectorAll('.nav-btn')[0])">⬅ Home Page Par Wapas Jayein</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>© 2026 Aditya Health Care Portal</footer>
+
+    <!-- PAGE & MENU SWITCHING SCRIPT -->
+    <script>
+        function showPage(pageId, btnElement) {
+            // Saare pages hide karein
+            let pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.style.display = 'none');
+            
+            // Selected page show karein
+            document.getElementById(pageId).style.display = 'block';
+
+            // Nav buttons ki active state update karein
+            let navBtns = document.querySelectorAll('.nav-btn');
+            navBtns.forEach(btn => btn.classList.remove('active'));
+            if(btnElement) {
+                btnElement.classList.add('active');
+            }
+
+            window.scrollTo(0, 0);
+        }
+
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Aapka appointment Aditya Health Care mein successfully book ho gaya hai!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
